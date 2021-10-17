@@ -7,7 +7,7 @@ import java.util.Comparator;
 public class TeslaSalesReport {
 	public static void main(String[] args) {
 
-	//	ArrayList<String> model3Data = FileService.createArrayListFromFile("model3.csv");
+		ArrayList<String[]> model3Data = FileService.createArrayListFromFile("model3.csv");
 //		ArrayList<String> modelSData = FileService.createArrayListFromFile("modelS.csv");
 //		ArrayList<String> modelXData = FileService.createArrayListFromFile("modelX.csv");
 
@@ -21,9 +21,9 @@ public class TeslaSalesReport {
 //		SalesEntryService.printSalesNumbersforSpecificYear(18, model3Entries);
 //		SalesEntryService.printSalesNumbersforSpecificYear(19, model3Entries);
 
-SalesEntry sale = new SalesEntry();
-sale.setDate("16-Feb");
-	System.out.println(sale.getDate().toString());
+SalesEntry newEntry = SalesEntryService.createSalesEntry(model3Data.get(2));
+
+	System.out.println(newEntry.getDate());
 		//model3Entries.stream().forEach(e -> System.out.println(e));
 		
 		

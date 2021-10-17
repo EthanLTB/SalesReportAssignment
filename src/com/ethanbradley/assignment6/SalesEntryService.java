@@ -1,15 +1,21 @@
 package com.ethanbradley.assignment6;
 
 
+import java.time.Month;
 import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class SalesEntryService {
 
-	public static SalesEntry createSalesEntry(String[] arr) {
+	public static  SalesEntry createSalesEntry(String[] arr) {
 		SalesEntry entry = new SalesEntry();
-		entry.setDate(arr[0]);
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yy-MMM");
+		String[] smallarr = arr[0].split("-");
+//		Month month = Month.valueOf(smallarr[1]);
+		YearMonth date = YearMonth.of(Integer.parseInt(smallarr[0]), Month.valueOf(smallarr[1]));
+		date.format(formatter);
+		entry.setDate(date);
 		entry.setSalesThisMonth(Integer.parseInt(arr[1]));
 		return entry;
 	}
