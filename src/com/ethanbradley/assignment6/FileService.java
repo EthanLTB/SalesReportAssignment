@@ -15,7 +15,8 @@ public class FileService {
 		try {
 			fileReader = new BufferedReader(new FileReader(fileName));
 			String line = fileReader.readLine();
-			while (line != null) {
+			while (line != null ) {
+//				[0-9]{2}-[a-zA-Z]{3}\s[0-9]+
 				arrayListName.add(line);
 				line = fileReader.readLine();
 			}

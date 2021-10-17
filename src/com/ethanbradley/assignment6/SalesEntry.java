@@ -1,36 +1,25 @@
 package com.ethanbradley.assignment6;
 
+import java.time.YearMonth;
+import java.time.format.DateTimeFormatter;
+
+
 public class SalesEntry {
-	private String date;
-	private String salesThisMonth;
-
-	SalesEntry(String[] arr) {
-		this.setDate(arr[0]);
-		this.setSalesThisMonth(arr[1]);
-	}
-
-	public SalesEntry() {
-
-	}
-
-	public String toString() {
-		return "sales entry: " + this.date + "   " + this.salesThisMonth;
-	}
-
-	public String getDate() {
+	private YearMonth date;;
+	private int salesThisMonth;
+	public YearMonth getDate() {
 		return date;
 	}
-
 	public void setDate(String date) {
-		this.date = date;
+		this.date = YearMonth.parse(date, DateTimeFormatter.ofPattern("yy-MMM"));
 	}
-
-	public String getSalesThisMonth() {
+	public int getSalesThisMonth() {
 		return salesThisMonth;
 	}
-
-	public void setSalesThisMonth(String salesThisMonth) {
+	public void setSalesThisMonth(int salesThisMonth) {
 		this.salesThisMonth = salesThisMonth;
 	}
+
+	
 
 }
