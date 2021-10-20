@@ -7,28 +7,28 @@ import java.util.ArrayList;
 
 public class FileService {
 
-	public static ArrayList<String[]> createArrayListFromFile(String fileName) {
+	public static ArrayList<SalesEntry> createArrayListFromFile(String fileName) {
 		BufferedReader fileReader = null;
 
-		ArrayList<String[]> arrayListName = new ArrayList<String[]>();
+		ArrayList<SalesEntry> arrayListName = new ArrayList<SalesEntry>();
 
 		try {
 			fileReader = new BufferedReader(new FileReader(fileName));
+			@SuppressWarnings("unused")
+			String headerline = fileReader.readLine();
 			String line = fileReader.readLine();
-			while (line != null ) {
-//				[0-9]{2}-[a-zA-Z]{3}\s[0-9]+
-				arrayListName.add(line.split(","));
+
+			while (line != null) {
+				arrayListName.add(SalesEntryService.createSalesEntry(line));
 				line = fileReader.readLine();
 			}
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 
 			try {
 				fileReader.close();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}

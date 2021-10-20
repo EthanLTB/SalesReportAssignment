@@ -1,48 +1,17 @@
 package com.ethanbradley.assignment6;
 
 import java.util.ArrayList;
-import java.util.Comparator;
-
 
 public class TeslaSalesReport {
 	public static void main(String[] args) {
 
-		ArrayList<String[]> model3Data = FileService.createArrayListFromFile("model3.csv");
-//		ArrayList<String> modelSData = FileService.createArrayListFromFile("modelS.csv");
-//		ArrayList<String> modelXData = FileService.createArrayListFromFile("modelX.csv");
+		ArrayList<SalesEntry> model3Data = FileService.createArrayListFromFile("model3.csv");
+		ArrayList<SalesEntry> modelSData = FileService.createArrayListFromFile("modelS.csv");
+		ArrayList<SalesEntry> modelXData = FileService.createArrayListFromFile("modelX.csv");
 
-     //	ArrayList<SalesEntry> model3Entries = SalesEntryService.createSalesEntryArray(model3Data);
-//		ArrayList<SalesEntry> modelSEntries = SalesEntryService.createSalesEntryArray(modelSData);
-//		ArrayList<SalesEntry> modelXEntries = SalesEntryService.createSalesEntryArray(modelXData);
-
-//		System.out.println("Model 3 Yearly Sales Report");
-//		System.out.println("--------------");
-//		SalesEntryService.printSalesNumbersforSpecificYear(17, model3Entries);
-//		SalesEntryService.printSalesNumbersforSpecificYear(18, model3Entries);
-//		SalesEntryService.printSalesNumbersforSpecificYear(19, model3Entries);
-
-SalesEntry newEntry = SalesEntryService.createSalesEntry(model3Data.get(2));
-
-	System.out.println(newEntry.getDate());
-		//model3Entries.stream().forEach(e -> System.out.println(e));
-		
-		
-		
-		
-		
-		
-//		System.out.println("Model S Yearly Sales Report");
-//		System.out.println("--------------");
-//		SalesEntryService.printSalesNumbersforSpecificYear(16, modelSEntries);
-//		SalesEntryService.printSalesNumbersforSpecificYear(17, modelSEntries);
-//		SalesEntryService.printSalesNumbersforSpecificYear(18, modelSEntries);
-//		SalesEntryService.printSalesNumbersforSpecificYear(19, modelSEntries);
-//
-//		System.out.println("Model X Yearly Sales Report");
-//		System.out.println("--------------");
-//		SalesEntryService.printSalesNumbersforSpecificYear(17, modelXEntries);
-//		SalesEntryService.printSalesNumbersforSpecificYear(18, modelXEntries);
-//		SalesEntryService.printSalesNumbersforSpecificYear(19, modelXEntries);
-
+		SalesReportService.printSalesReport(model3Data, "Model 3");
+		SalesReportService.printSalesReport(modelSData, "Model S");
+		SalesReportService.printSalesReport(modelXData, "Model X");
 	}
+
 }
